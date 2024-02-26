@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <h1>Admin Panel</h1>
+
+
+    <div class="section">
+        <h2>Social Links</h2>
+        <div class="actions">
+            <button class="add-btn" button onclick="addSocialLink()">Add Social Link</button>
+        </div>
+        <table id="socialLinksTable">
+            <tr>
+                <th>Alt Text</th>
+                <th>Image Path</th>
+                <th>Link</th>
+                <th>Action</th>
+            </tr>
+            <!-- Social links data will be loaded here dynamically -->
+            <tr>
+                <td>LinkedIn</td>
+                <td>./assets/linkedin.png</td>
+                <td>https://www.linkedin.com/</td>
+                <td>
+                    <button class="edit-btn" onclick="editSocialLink(this)">Edit</button>
+                    <button class="delete-btn" onclick="deleteSocialLink(this)">Delete</button>
+                </td>
+            </tr>
+            <!-- More social links entries will be added dynamically -->
+        </table>
+    </div>
+    
+    <!-- Add Social Link Modal -->
+    <div id="addSocialLinkModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add Social Link</h2>
+            <form id="addSocialLinkForm">
+                <label for="altText">Alt Text:</label>
+                <input type="text" id="altText" name="altText" required>
+                <label for="imagePath">Image Path:</label>
+                <input type="text" id="imagePath" name="imagePath" required>
+                <label for="link">Link:</label>
+                <input type="text" id="link" name="link" required>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Edit Social Link Modal -->
+    <div id="editSocialLinkModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Edit Social Link</h2>
+            <form id="editSocialLinkForm">
+                <input type="hidden" id="editSocialLinkId" name="socialLinkId">
+                <label for="editAltText">Alt Text:</label>
+                <input type="text" id="editAltText" name="altText" required>
+                <label for="editImagePath">Image Path:</label>
+                <input type="text" id="editImagePath" name="imagePath" required>
+                <label for="editLink">Link:</label>
+                <input type="text" id="editLink" name="link" required>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+    <div class="section">
+        <h2>Projects</h2>
+        <div class="actions">
+            <button class="add-btn" button onclick="addProject()">Add Project</button>
+        </div>
+        <table id="projectTable">
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Link</th>
+                <th>Image Path</th>
+                <th>Alt Text</th>
+                <th>Action</th>
+            </tr>
+            <!-- Project data will be loaded here dynamically -->
+            <tr>
+                <td>Project Title</td>
+                <td>Project Description</td>
+                <td>Project Link</td>
+                <td>Project Image Path</td>
+                <td>Project Alt Text</td>
+                <td><button class="edit-btn" onclick="editProject(this)">Edit</button> <button class="delete-btn" onclick="deleteProject(this)">Delete</button></td>
+            </tr>
+            <!-- More project entries will be added dynamically -->
+        </table>
+    </div>
+
+    <!-- Add Project Modal -->
+    <div id="addProjectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add Project</h2>
+            <form id="addProjectForm">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+                <label for="link">Link:</label>
+                <input type="text" id="link" name="link" required>
+                <label for="imagePath">Image Path:</label>
+                <input type="text" id="imagePath" name="imagePath" required>
+                <label for="altText">Alt Text:</label>
+                <input type="text" id="altText" name="altText" required>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Project Modal -->
+    <div id="editProjectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Edit Project</h2>
+            <form id="editProjectForm">
+                <input type="hidden" id="editProjectId" name="projectId">
+                <label for="editTitle">Title:</label>
+                <input type="text" id="editTitle" name="title" required>
+                <label for="editDescription">Description:</label>
+                <textarea id="editDescription" name="description" required></textarea>
+                <label for="editLink">Link:</label>
+                <input type="text" id="editLink" name="link" required>
+                <label for="editImagePath">Image Path:</label>
+                <input type="text" id="editImagePath" name="imagePath" required>
+                <label for="editAltText">Alt Text:</label>
+                <input type="text" id="editAltText" name="altText" required>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="section">
+        <h2>Expertise Details</h2>
+        <div class="actions">
+            <button class="add-btn" button onclick="addExpertise()">Add Expertise</button>
+        </div>
+        <table id="expertiseTable">
+            <tr>
+                <th>Project</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+            <!-- Expertise details will be loaded here dynamically -->
+            <tr>
+                <td>SimuWallet</td>
+                <td>A personal finance management app.</td>
+                <td>
+                    <button class="edit-btn" onclick="editExpertise(this)">Edit</button>
+                    <button class="delete-btn" onclick="deleteExpertise(this)">Delete</button>
+                </td>
+            </tr>
+            <!-- More expertise entries will be added dynamically -->
+        </table>
+    </div>
+    
+    <!-- Add Expertise Modal -->
+    <div id="addExpertiseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add Expertise</h2>
+            <form id="addExpertiseForm">
+                <label for="addProject">Project:</label>
+                <input type="text" id="addProject" name="project" required>
+                <label for="addDescription">Description:</label>
+                <textarea id="addDescription" name="description" required></textarea>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Edit Expertise Modal -->
+    <div id="editExpertiseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Edit Expertise</h2>
+            <form id="editExpertiseForm">
+                <input type="hidden" id="editExpertiseId" name="expertiseId">
+                <label for="editProject">Project:</label>
+                <input type="text" id="editProject" name="project" required>
+                <label for="editDescription">Description:</label>
+                <textarea id="editDescription" name="description" required></textarea>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="section">
+        <h2>Skills</h2>
+        <div class="actions">
+            <button class="add-btn" button onclick="addExpertise()">Add Expertise</button>
+        </div>
+        <table id="expertiseTable">
+            <tr>
+                <th>Skill Name</th>
+                <th>Skill Percent</th>
+                <th>Action</th>
+            </tr>
+            <!-- Expertise details will be loaded here dynamically -->
+            <tr>
+                <td>HTML</td>
+                <td>80%</td>
+                <td>
+                    <button class="edit-btn" onclick="editExpertise(this)">Edit</button>
+                    <button class="delete-btn" onclick="deleteExpertise(this)">Delete</button>
+                </td>
+            </tr>
+            <!-- More expertise entries will be added dynamically -->
+        </table>
+    </div>
+    
+    <!-- Add Expertise Modal -->
+    <div id="addExpertiseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add Expertise</h2>
+            <form id="addExpertiseForm">
+                <label for="skillName">Skill Name:</label>
+                <input type="text" id="skillName" name="skillName" required>
+                <label for="skillPercent">Skill Percent:</label>
+                <input type="text" id="skillPercent" name="skillPercent" required>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Edit Expertise Modal -->
+    <div id="editExpertiseModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Edit Expertise</h2>
+            <form id="editExpertiseForm">
+                <input type="hidden" id="editExpertiseId" name="expertiseId">
+                <label for="editSkillName">Skill Name:</label>
+                <input type="text" id="editSkillName" name="skillName" required>
+                <label for="editSkillPercent">Skill Percent:</label>
+                <input type="text" id="editSkillPercent" name="skillPercent" required>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+    
+    
+
+    <!-- Mail Section -->
+    <div class="section">
+        <h2>Inbox</h2>
+        <table id="mailTable">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Action</th>
+            </tr>
+            <!-- Mail data will be loaded here dynamically -->
+            <tr>
+                <td>pikachu</td>
+                <td>pikapikapikakakak</td>
+                <td>Feedback</td>
+                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
+                <td><button class="delete-btn" onclick="deleteMail(this)">Delete</button></td>
+            </tr>
+            <!-- More mail entries will be added dynamically -->
+        </table>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
